@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello, world!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body >
+    <body>
+        <div>
+            <ul>
+                <li class="update" ><a href="Covid.html" style="font-size: 30px; font-weight: 300;">Covid-19</a></li>
+                <li><a href="index.html">Home</a></li>
+                
+                <li  ><a href="Countries.html">Countries</a></li>
+                <li><a href="ActivityTimeline.html">Activity Timeline</a></li>
+                <li  ><a href="More.html">More</a></li>
+        
+                
+        
+            </ul>
+        </div>
+    <div class="dateDiv">
+     <h1 class="date" id="displayDate"></h1>
+    </div>
+     <div class="coronaimgDiv">
+         <img class="coronaimg" src=https://www.who.int/images/default-source/mca/mca-covid-19/coronavirus-2.tmb-1920v.jpg?Culture=en&sfvrsn=4dba955c_6>
+     
+        
+    </div>
+    <div class="con">
+        <div class="box1"><h1>Confirmed cases</h1><h3 id="data" ></h3></div>
+        <div class="box2"><h1>Recovered cases</h1><h3 id="data1"></h3></div>
+        <div class="box3 "><h1>Deaths cases</h1><h3 id="data2"></h3></div>
+        <div class="box4"><h1>New Deaths cases</h1><h3 id="data3"></h3></div>
+    </div>
+    <div style="height: 400px;">
+     <div style="display: flex; background-color: rgb(162, 164, 167); margin-top: 100px; margin-left: 20px; margin-right: 20px; border-radius: 30px;">
+      <h2 ><a style="color: rgb(252, 248, 248); font-size: 34px; margin-left: 300px;" href="Overview.html">Overview</a></h2>
+      <h2><a  style="color: rgb(252, 248, 248); font-size: 34px; margin-left: 400px;" href="Symptoms.html" >Symptoms</a></h2>
+     </div>
+    </div>
+     </div>
+        
+
+      
+  </div>
+ 
+    
+    
+    
+    
+          
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+        init()
+
+        function init(){
+           var url="https://api.covid19api.com/summary"
+
+            $.get(url,function(data){
+                console.log(data.Global);
+                data=`
+                <h3>${data.Global.TotalConfirmed}</h3>
+                
+
+                `
+                $('#data').html(data)
+            
+            })
+            $.get(url,function(data1){
+                console.log(data1.Global);
+                data1=`
+                <h3>${data1.Global.TotalRecovered}</h3>
+                
+
+                `
+                $('#data1').html(data1)
+            
+            })
+            $.get(url,function(data2){
+                console.log(data2.Global);
+                data2=`
+                <h3>${data2.Global.TotalDeaths}</h3>
+                
+
+                `
+                $('#data2').html(data2)
+            
+            })
+            $.get(url,function(data3){
+                console.log(data3.Global);
+                data3=`
+                <h3>${data3.Global.TotalConfirmed}</h3>
+                
+
+                `
+                $('#data3').html(data3)
+            
+            })
+        }
+    </script>
+    
+</body>
+</html>
